@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import Grid from "@mui/material/Grid";
+import Container from "@mui/material/Container";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Country from "./components/Country";
+
+class App extends Component {
+	state = {};
+	render() {
+		return (
+			<div className="App">
+				<Container>
+					<Grid
+						container
+						justify="center"
+						direction="column"
+						alignItems="center"
+					>
+						<Grid item>
+							<Country />
+						</Grid>
+					</Grid>
+				</Container>
+			</div>
+		);
+	}
 }
 
 export default App;
