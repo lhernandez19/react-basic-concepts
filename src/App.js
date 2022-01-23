@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
-
 import Country from "./components/Country";
 
 class App extends Component {
@@ -9,7 +8,7 @@ class App extends Component {
 		countries: [
 			{ id: 1, name: "United States", goldMedalCount: 3 },
 			{ id: 2, name: "China", goldMedalCount: 2 },
-			{ id: 3, name: "Germany", goldMedalCount: 1 },
+			{ id: 3, name: "Nicaragua", goldMedalCount: 1 },
 		],
 	};
 
@@ -18,9 +17,9 @@ class App extends Component {
 	//handle gold medal increment
 	handleIncrement = country => {
 		console.log("clicked", country.name);
-		//duplicate the json 
+		//duplicate the json
 		const countries = [...this.state.countries];
-		//identify the country 
+		//identify the country
 		const index = countries.indexOf(country);
 		//duplicate country
 		countries[index] = { ...country };
@@ -31,10 +30,14 @@ class App extends Component {
 	};
 
 	handleDecrement = country => {
+		// if (country.goldMedalCount = 0) {
+		// 	country.goldMedalCount = 0;
+		// }
+
 		console.log("clicked", country.name);
-		//duplicate the json 
+		//duplicate the json
 		const countries = [...this.state.countries];
-		//identify the country 
+		//identify the country
 		const index = countries.indexOf(country);
 		//duplicate country
 		countries[index] = { ...country };
@@ -48,6 +51,7 @@ class App extends Component {
 		return (
 			<div className="App">
 				<Container>
+					<h1>Total Countries: {this.state.countries.length} </h1>
 					<Grid
 						container
 						justify="center"

@@ -2,12 +2,10 @@ import React, { Component } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import AddIcon from "@mui/icons-material/Add";
-import RemoveIcon from '@mui/icons-material/Remove';
 import Stack from "@mui/material/Stack";
 import IconButton from "@mui/material/IconButton";
-import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
-import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 
 class Country extends Component {
 	render() {
@@ -16,7 +14,7 @@ class Country extends Component {
 
 		return (
 			<React.Fragment>
-				<Card variant="outlined" sx={{m: 2}}>
+				<Card variant="outlined" sx={{ m: 2 }}>
 					<CardContent>
 						<Typography gutterBottom variant="h3" color="error" align="center">
 							{country.name}
@@ -41,6 +39,7 @@ class Country extends Component {
 							size="medium"
 							color="primary"
 							aria-label="remove"
+							disabled={!country.goldMedalCount}
 						>
 							<RemoveCircleOutlineIcon fontSize="large" />
 						</IconButton>
