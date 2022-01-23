@@ -30,10 +30,6 @@ class App extends Component {
 	};
 
 	handleDecrement = country => {
-		// if (country.goldMedalCount = 0) {
-		// 	country.goldMedalCount = 0;
-		// }
-
 		console.log("clicked", country.name);
 		//duplicate the json
 		const countries = [...this.state.countries];
@@ -51,7 +47,6 @@ class App extends Component {
 		return (
 			<div className="App">
 				<Container>
-					<h1>Total Countries: {this.state.countries.length} </h1>
 					<Grid
 						container
 						justify="center"

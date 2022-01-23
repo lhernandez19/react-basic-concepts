@@ -9,9 +9,7 @@ import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 
 class Country extends Component {
 	render() {
-		//object dec
 		const { country, onIncrement, onDecrement } = this.props;
-
 		return (
 			<React.Fragment>
 				<Card variant="outlined" sx={{ m: 2 }}>
