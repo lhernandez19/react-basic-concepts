@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import Country from "./components/Country";
+import Typography from "@mui/material/Typography";
+import "./App.css";
 
 class App extends Component {
 	state = {
@@ -47,22 +49,19 @@ class App extends Component {
 		return (
 			<div className="App">
 				<Container>
-					<Grid
-						container
-						justify="center"
-						direction="column"
-						alignItems="center"
-					>
-						<Grid item>
-							{this.state.countries.map(country => (
+					<Typography gutterBottom variant="h2" color="primary" align="center">
+						React More Basic Concepts - Assignment
+					</Typography>
+					<Grid container spacing={3} sx={{ my: 2 }}>
+						{this.state.countries.map(country => (
+							<Grid item xs={12} md={6} lg={4} key={country.id}>
 								<Country
-									key={country.id}
 									country={country}
 									onIncrement={this.handleIncrement}
 									onDecrement={this.handleDecrement}
 								/>
-							))}
-						</Grid>
+							</Grid>
+						))}
 					</Grid>
 				</Container>
 			</div>

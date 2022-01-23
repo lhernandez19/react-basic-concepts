@@ -12,7 +12,7 @@ class Country extends Component {
 		const { country, onIncrement, onDecrement } = this.props;
 		return (
 			<React.Fragment>
-				<Card variant="outlined" sx={{ m: 2 }}>
+				<Card variant="outlined">
 					<CardContent>
 						<Typography gutterBottom variant="h3" color="error" align="center">
 							{country.name}
@@ -21,7 +21,12 @@ class Country extends Component {
 							Gold Medals: {country.goldMedalCount}
 						</Typography>
 					</CardContent>
-					<Stack alignItems="center">
+					<Stack
+						direction="row"
+						justifyContent="center"
+						alignItems="center"
+						spacing={2}
+					>
 						<IconButton
 							onClick={() => onIncrement(country)}
 							variant="contained"
