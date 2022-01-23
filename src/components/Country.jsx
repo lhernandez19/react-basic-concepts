@@ -3,41 +3,46 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from '@mui/icons-material/Remove';
 import Stack from "@mui/material/Stack";
 import IconButton from "@mui/material/IconButton";
+import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
 class Country extends Component {
-	state = {
-		gold: 0,
-		name: "USA",
-	};
-
-	handleIncrement = () => {
-		let increment = this.state.gold + 1;
-		this.setState({ gold: increment });
-	};
-
 	render() {
+		//object dec
+		const { country, onIncrement, onDecrement } = this.props;
+
 		return (
 			<React.Fragment>
-				<Card variant="outlined">
+				<Card variant="outlined" sx={{m: 2}}>
 					<CardContent>
 						<Typography gutterBottom variant="h3" color="error" align="center">
-							{this.state.name}
+							{country.name}
 						</Typography>
 						<Typography variant="h5" align="center">
-							Gold Medals: {this.state.gold}
+							Gold Medals: {country.goldMedalCount}
 						</Typography>
 					</CardContent>
 					<Stack alignItems="center">
 						<IconButton
-							onClick={this.handleIncrement}
+							onClick={() => onIncrement(country)}
 							variant="contained"
 							size="medium"
 							color="primary"
 							aria-label="add"
 						>
-							<AddIcon fontSize="large" />
+							<AddCircleOutlineIcon fontSize="large" />
+						</IconButton>
+						<IconButton
+							onClick={() => onDecrement(country)}
+							variant="contained"
+							size="medium"
+							color="primary"
+							aria-label="remove"
+						>
+							<RemoveCircleOutlineIcon fontSize="large" />
 						</IconButton>
 					</Stack>
 				</Card>
