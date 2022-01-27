@@ -2,51 +2,41 @@ import React, { Component } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import IconButton from "@mui/material/IconButton";
-import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
-import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import Medals from "./Medals";
 
 class Country extends Component {
+	
+	totalMedalsPerCountry = (medals, country) => {
+		return medals.reduce(
+			(acc, cur) => acc + country[cur.name],
+			0
+		);
+	};
+
 	render() {
-		const { country, onIncrement, onDecrement } = this.props;
+		const {
+			country,
+			medals,
+			onIncrement,
+			onDecrement,
+		} = this.props;
 		return (
 			<React.Fragment>
 				<Card variant="outlined">
 					<CardContent>
-						<Typography gutterBottom variant="h3" color="error" align="center">
-							{country.name}
+						<Typography gutterBottom variant="h4" color="error" align="center">
+							{country.name}: {this.totalMedalsPerCountry(medals, country)}
 						</Typography>
-						<Typography variant="h5" align="center">
-							Gold Medals: {country.goldMedalCount}
-						</Typography>
+						{medals.map(medal => (
+							<Medals
+								country={country}
+								key={medal.id}
+								medal={medal}
+								onIncrement={onIncrement}
+								onDecrement={onDecrement}
+							></Medals>
+						))}
 					</CardContent>
-					<Stack
-						direction="row"
-						justifyContent="center"
-						alignItems="center"
-						spacing={2}
-					>
-						<IconButton
-							onClick={() => onIncrement(country)}
-							variant="contained"
-							size="medium"
-							color="primary"
-							aria-label="add"
-						>
-							<AddCircleOutlineIcon fontSize="large" />
-						</IconButton>
-						<IconButton
-							onClick={() => onDecrement(country)}
-							variant="contained"
-							size="medium"
-							color="primary"
-							aria-label="remove"
-							disabled={!country.goldMedalCount}
-						>
-							<RemoveCircleOutlineIcon fontSize="large" />
-						</IconButton>
-					</Stack>
 				</Card>
 			</React.Fragment>
 		);
