@@ -73,13 +73,6 @@ class App extends Component {
 		return totalMedals;
 	};
 
-	handleCountryMedalCount = () => {
-		return this.state.medals.reduce(
-			(acc, cur) => acc + this.state.country[cur.name],
-			0
-		);
-	};
-
 	render() {
 		const { medals } = this.state;
 		return (
